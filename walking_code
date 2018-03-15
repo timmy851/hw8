@@ -1,0 +1,43 @@
+/* Sweep
+ by BARRAGAN <http://barraganstudio.com>
+ This example code is in the public domain.
+
+ modified 8 Nov 2013
+ by Scott Fitzgerald
+ http://www.arduino.cc/en/Tutorial/Sweep
+*/
+
+#include <Servo.h>
+
+Servo servo5;  // create servo object to control a servo
+Servo servo6;
+Servo servo9;
+Servo servo10;
+// twelve servo objects can be created on most boards
+
+int pos = 0;    // variable to store the servo position
+int rPos = 90;
+
+void setup() {
+  servo5.attach(5);  // attaches the servo on pin 9 to the servo object
+  servo6.attach(6);
+  servo9.attach(9);
+  servo10.attach(10);
+  
+  servo5.write(0);
+  servo6.write(0);
+  servo9.write(0);
+  servo10.write(0);
+}
+
+void loop() {
+  rPos = 90;
+  for (pos = 0; pos <= 90; pos +=1) {
+    servo5.write(rPos);
+    servo6.write(rPos);
+    rPos = rPos - 1;
+    servo9.write(pos);
+    servo10.write(pos);
+    delay(15);
+  }
+}
